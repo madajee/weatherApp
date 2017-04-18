@@ -14,6 +14,7 @@ public class OpenWeatherMapAPIPojoToWeatherDto {
 	{
 		WeatherDto outputPaylaod = new WeatherDto();
 		outputPaylaod.setCityName(inputPaylaod.getName());
+		outputPaylaod.setCityTemp(inputPaylaod.getMain().getTemp());
 		return outputPaylaod;
 	}
 }

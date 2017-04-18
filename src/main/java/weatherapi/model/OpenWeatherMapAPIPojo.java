@@ -2,12 +2,13 @@ package weatherapi;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties({"weather", "main", "wind", "clouds", "dt", "sys", "id", "cod", "visibility"})
+@JsonIgnoreProperties({"weather", "wind", "clouds", "dt", "sys", "id", "cod", "visibility"})
 public class OpenWeatherMapAPIPojo {
 
 	private String base;
 	private String name;
 	private Coord coord;
+	private Main main;
 	
 	public String getBase() {
 		return base;
@@ -33,6 +34,14 @@ public class OpenWeatherMapAPIPojo {
 		this.coord = coord;
 	}
 
+	public Main getMain() {
+		return main;
+	}
+
+	public void setMain(Main main) {
+		this.main = main;
+	}
+
 	@JsonIgnoreProperties({"lat"})
 	public class Coord {
 		
@@ -54,6 +63,21 @@ public class OpenWeatherMapAPIPojo {
 		public void setLat(String lat) {
 			this.lat = lat;
 		}*/
+
+	}
+
+	@JsonIgnoreProperties({"pressure", "humidity", "temp_min", "temp_max"})
+	public class Main {
+		
+		private String temp;
+
+		public String getTemp() {
+			return temp;
+		}
+
+		public void setTemp(String temp) {
+			this.temp = temp;
+		}
 
 	}
 

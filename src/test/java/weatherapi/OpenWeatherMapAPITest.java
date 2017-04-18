@@ -22,10 +22,12 @@ public class OpenWeatherMapAPITest{
     public void getWeatherByCityReturnsOK() {
 
     	String appid = app.getAppid();
+    	String city = "Atlanta";
+    	String unit = "metric";
 	    System.out.println("AppID: " + appid);
     	OpenWeatherMapAPI openWeatherMapAPI = new OpenWeatherMapAPI();
     	ResponseEntity<String> response;
-	    response = openWeatherMapAPI.getWeatherByCity(appid);
+	    response = openWeatherMapAPI.getWeatherByCity(appid, city, unit);
 	    assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
 	}
 

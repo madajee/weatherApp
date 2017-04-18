@@ -36,7 +36,7 @@ public class OpenWeatherMapAPI
 	//@Autowired
 	//private Environment env;
 
-	public ResponseEntity<String> getWeatherByCity(String appid)
+	public ResponseEntity<String> getWeatherByCity(String appid, String city, String unit)
 	{
 		log.info("********Hello WeatherByCity******");
 		//String mongodbUrl = env.getProperty("mongodb.url");
@@ -47,7 +47,8 @@ public class OpenWeatherMapAPI
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
     	headers.add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
 		HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
-		String url = "http://api.openweathermap.org/data/2.5/weather?q=Atlanta&APPID="+appid+"&units=metric";
+		String url = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&APPID="+appid+"&units="+unit;
+		log.info("********OpenWeatherMAPAPI URL******" + url);
 		ResponseEntity<String> response = rt.exchange(url, HttpMethod.GET, entity, String.class);
 		return response;
 	}

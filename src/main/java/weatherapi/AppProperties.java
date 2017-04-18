@@ -11,9 +11,6 @@ public class AppProperties {
 	/*@Value("${mongodb}")
 	private String mongodb;*/
 
-	@Value("${appid}")
-	private String appid;
-
 	/*public String getMongodb() {
 		return mongodb;
 	}
@@ -22,11 +19,36 @@ public class AppProperties {
 		this.mongodb = mongodb;
 	}*/
 
+	@Value("${appid}")
+	private String appid;
+
 	public String getAppid() {
 		return appid;
 	}
 
 	public void setAppid(String appid) {
 		this.appid = appid;
+	}
+
+	@Value("${defaultcity}")
+	private String defaultcity;
+
+	public String getDefaultCity() {
+		return defaultcity;
+	}
+
+	public void setDefaultCity(String defaultcity) {
+		this.defaultcity = defaultcity;
+	}
+
+	@Value("${defaultunit}")
+	private String defaultunit;
+
+	public String getDefaultUnit() {
+		return defaultunit;
+	}
+
+	public void setDefaultUnit(String defaultunit) {
+		this.defaultunit = defaultunit;
 	}
 }

@@ -50,8 +50,10 @@ public class Application {
     public CommandLineRunner run() throws Exception {
 
 	    String appid = app.getAppid();
+	    String city = app.getDefaultCity();
+	    String unit = app.getDefaultUnit();
 	    log.info("AppID: " + appid);
-	    ResponseEntity<String> response = openWeatherMapAPI.getWeatherByCity(appid);
+	    ResponseEntity<String> response = openWeatherMapAPI.getWeatherByCity(appid,city,unit);
 	    String payload = response.getBody();
 	    System.out.println("OpenWeatherMapAPI Payload" + payload);
 
@@ -59,6 +61,7 @@ public class Application {
 	    System.out.println("Base: " + openWeatherMapAPIPojo.getBase());
 	    System.out.println("CityName: " + openWeatherMapAPIPojo.getName());
 	    System.out.println("Coord Lon: " + openWeatherMapAPIPojo.getCoord().getLon());
+	     System.out.println("City Temp: " + openWeatherMapAPIPojo.getMain().getTemp());
 
 	    WeatherDto weatherDto = openWeatherMapAPIPojoToWeatherDto.transformOpenWeatherMapAPIPojoToWeatherDto(openWeatherMapAPIPojo);
 	    System.out.println("CityName1: " + weatherDto.getCityName());
