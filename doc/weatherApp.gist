@@ -4,5 +4,26 @@ cd weatherApp
 mkdir -p src/main/resources
 touch src/main/resources/application.properties
 sublime src/main/resources/application.properties
-Specify the Application Key in the application.properties file (appid=ApplicationKey)
+Add the properties values (appid, defaultcity, defaultunit)
+Specify the Application Key & other properties in the application.properties file (appid=ApplicationKey). Donot specify the curly braces while updating the properties file.
+{
+	appid=ApplicationKey
+	defaultcity=Atlanta
+	defaultunit=metric
+
+}
 mvn test (Output: Tests run: 3, Failures: 0, Errors: 0, Skipped: 0)
+
+Deployment on Heroku and setup cli
+Create an account on Heroku.
+Follow the setps until adding application properties.
+sublime .gitignore
+modify the file by removing *.properties and save the file.
+git add .
+git commit -m "demo"
+heroku create
+git push heroku master
+heroku ps:scale web=1
+heroku open /weatherapi/Atlanta
+Webpage should display a temp in celius.
+
