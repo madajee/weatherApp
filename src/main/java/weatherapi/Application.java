@@ -35,6 +35,9 @@ public class Application {
     OpenWeatherMapAPIPojoToWeatherDto openWeatherMapAPIPojoToWeatherDto;
 
     @Autowired
+    WeatherService weatherService;
+
+    @Autowired
     AppProperties app;
 	
 	public static void main(String[] args) {
@@ -49,6 +52,9 @@ public class Application {
 	@Bean
     public CommandLineRunner run() throws Exception {
 
+	    String cityTemp = weatherService.getWeatherByCity("london");
+	    System.out.println("London City Temp: " + cityTemp);
+
 	    String appid = app.getAppid();
 	    String city = app.getDefaultCity();
 	    String unit = app.getDefaultUnit();
@@ -61,7 +67,7 @@ public class Application {
 	    System.out.println("Base: " + openWeatherMapAPIPojo.getBase());
 	    System.out.println("CityName: " + openWeatherMapAPIPojo.getName());
 	    System.out.println("Coord Lon: " + openWeatherMapAPIPojo.getCoord().getLon());
-	     System.out.println("City Temp: " + openWeatherMapAPIPojo.getMain().getTemp());
+	    System.out.println("City Temp: " + openWeatherMapAPIPojo.getMain().getTemp());
 
 	    WeatherDto weatherDto = openWeatherMapAPIPojoToWeatherDto.transformOpenWeatherMapAPIPojoToWeatherDto(openWeatherMapAPIPojo);
 	    System.out.println("CityName1: " + weatherDto.getCityName());
