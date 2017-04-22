@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 @RestController
 public class WeatherController {
 
@@ -18,6 +20,7 @@ public class WeatherController {
 	@Autowired
     WeatherService weatherService;
 
+    @CrossOrigin
     @RequestMapping(value = "/weatherapi/{cityName}", method = RequestMethod.GET)
     public String getWeatherByCity(@PathVariable("cityName") String cityName) throws Exception {
 
