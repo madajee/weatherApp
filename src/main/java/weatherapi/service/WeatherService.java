@@ -30,9 +30,15 @@ public class WeatherService {
 		log.info("In Weather Service Start");
 		String appid = app.getAppid();
 		String city = app.getDefaultCity();
+		//System.out.println("Default City" + city);
 		String unit = app.getDefaultUnit();
-		if (cityName != null)
-			city = cityName;  
+		//if (cityName != null)
+		//	city = cityName;
+
+		if (cityName.equals(null) || cityName.equals(""))
+		{}
+		else
+		{city = cityName;}
 	    ResponseEntity<String> response = openWeatherMapAPI.getWeatherByCity(appid,city,unit);
 	    String payload = response.getBody();
 	    System.out.println("OpenWeatherMapAPI Payload" + payload);

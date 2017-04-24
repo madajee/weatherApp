@@ -52,7 +52,7 @@ public class Application {
 	@Bean
     public CommandLineRunner run() throws Exception {
 
-	    String cityTemp = weatherService.getWeatherByCity("london");
+	    /*String cityTemp = weatherService.getWeatherByCity("london");
 	    System.out.println("London City Temp: " + cityTemp);
 
 	    String appid = app.getAppid();
@@ -70,7 +70,7 @@ public class Application {
 	    System.out.println("City Temp: " + openWeatherMapAPIPojo.getMain().getTemp());
 
 	    WeatherDto weatherDto = openWeatherMapAPIPojoToWeatherDto.transformOpenWeatherMapAPIPojoToWeatherDto(openWeatherMapAPIPojo);
-	    System.out.println("CityName1: " + weatherDto.getCityName());
+	    System.out.println("CityName1: " + weatherDto.getCityName());*/
 	    //log.info("MongoDBURL: " + app.getMongodb());
 	    return null;
 
