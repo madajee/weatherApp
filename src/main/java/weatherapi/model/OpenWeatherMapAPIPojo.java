@@ -1,15 +1,26 @@
 package weatherapi;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.*;
 
-@JsonIgnoreProperties({"weather", "wind", "clouds", "dt", "sys", "id", "cod", "visibility"})
+@JsonIgnoreProperties({"weather", "wind", "clouds", "dt", "sys", "id", "cod", "visibility", "timezone"})
 public class OpenWeatherMapAPIPojo {
 
 	private String base;
 	private String name;
 	private Coord coord;
 	private Main main;
+	private TimeZone timezone;
 	
+	public TimeZone getTimeZone() {
+		return timezone;
+	}
+
+	public void setTimeZone() {
+		this.timezone = timezone;
+	}
+
+
 	public String getBase() {
 		return base;
 	}
